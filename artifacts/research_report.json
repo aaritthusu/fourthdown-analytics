@@ -1,0 +1,361 @@
+{
+  "created_at": "2026-10-22T21:19:10.456610+00:00",
+  "source": "Local nflverse cache (mtime 2026-10-22 21:17 UTC)",
+  "years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "folds": [
+    {
+      "season": 2022,
+      "train_games": 2311,
+      "test_games": 269,
+      "models": {
+        "Basic logistic": {
+          "count": 269,
+          "accuracy": 0.6171,
+          "precision": 0.63636,
+          "recall": 0.74172,
+          "log_loss": 0.64582,
+          "brier": 0.22709,
+          "confusion": [
+            [
+              54,
+              64
+            ],
+            [
+              39,
+              112
+            ]
+          ]
+        },
+        "Enhanced logistic": {
+          "count": 269,
+          "accuracy": 0.63941,
+          "precision": 0.65517,
+          "recall": 0.75497,
+          "log_loss": 0.64415,
+          "brier": 0.22589,
+          "confusion": [
+            [
+              58,
+              60
+            ],
+            [
+              37,
+              114
+            ]
+          ]
+        },
+        "Enhanced random forest": {
+          "count": 269,
+          "accuracy": 0.64684,
+          "precision": 0.66279,
+          "recall": 0.75497,
+          "log_loss": 0.64149,
+          "brier": 0.22556,
+          "confusion": [
+            [
+              60,
+              58
+            ],
+            [
+              37,
+              114
+            ]
+          ]
+        },
+        "Enhanced boosting": {
+          "count": 269,
+          "accuracy": 0.6171,
+          "precision": 0.63333,
+          "recall": 0.75497,
+          "log_loss": 0.65048,
+          "brier": 0.22933,
+          "confusion": [
+            [
+              52,
+              66
+            ],
+            [
+              37,
+              114
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "season": 2023,
+      "train_games": 2325,
+      "test_games": 272,
+      "models": {
+        "Basic logistic": {
+          "count": 272,
+          "accuracy": 0.61765,
+          "precision": 0.64242,
+          "recall": 0.70199,
+          "log_loss": 0.65404,
+          "brier": 0.23121,
+          "confusion": [
+            [
+              62,
+              59
+            ],
+            [
+              45,
+              106
+            ]
+          ]
+        },
+        "Enhanced logistic": {
+          "count": 272,
+          "accuracy": 0.60294,
+          "precision": 0.62874,
+          "recall": 0.69536,
+          "log_loss": 0.65404,
+          "brier": 0.23117,
+          "confusion": [
+            [
+              59,
+              62
+            ],
+            [
+              46,
+              105
+            ]
+          ]
+        },
+        "Enhanced random forest": {
+          "count": 272,
+          "accuracy": 0.59926,
+          "precision": 0.62963,
+          "recall": 0.6755,
+          "log_loss": 0.65636,
+          "brier": 0.23256,
+          "confusion": [
+            [
+              61,
+              60
+            ],
+            [
+              49,
+              102
+            ]
+          ]
+        },
+        "Enhanced boosting": {
+          "count": 272,
+          "accuracy": 0.59559,
+          "precision": 0.62424,
+          "recall": 0.68212,
+          "log_loss": 0.66376,
+          "brier": 0.23533,
+          "confusion": [
+            [
+              59,
+              62
+            ],
+            [
+              48,
+              103
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "season": 2024,
+      "train_games": 2342,
+      "test_games": 272,
+      "models": {
+        "Basic logistic": {
+          "count": 272,
+          "accuracy": 0.65809,
+          "precision": 0.65663,
+          "recall": 0.75172,
+          "log_loss": 0.63875,
+          "brier": 0.22352,
+          "confusion": [
+            [
+              70,
+              57
+            ],
+            [
+              36,
+              109
+            ]
+          ]
+        },
+        "Enhanced logistic": {
+          "count": 272,
+          "accuracy": 0.66176,
+          "precision": 0.66258,
+          "recall": 0.74483,
+          "log_loss": 0.62587,
+          "brier": 0.21809,
+          "confusion": [
+            [
+              72,
+              55
+            ],
+            [
+              37,
+              108
+            ]
+          ]
+        },
+        "Enhanced random forest": {
+          "count": 272,
+          "accuracy": 0.70588,
+          "precision": 0.71812,
+          "recall": 0.73793,
+          "log_loss": 0.61774,
+          "brier": 0.21415,
+          "confusion": [
+            [
+              85,
+              42
+            ],
+            [
+              38,
+              107
+            ]
+          ]
+        },
+        "Enhanced boosting": {
+          "count": 272,
+          "accuracy": 0.66544,
+          "precision": 0.68,
+          "recall": 0.70345,
+          "log_loss": 0.62218,
+          "brier": 0.21616,
+          "confusion": [
+            [
+              79,
+              48
+            ],
+            [
+              43,
+              102
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "season": 2025,
+      "train_games": 2358,
+      "test_games": 271,
+      "models": {
+        "Basic logistic": {
+          "count": 271,
+          "accuracy": 0.61993,
+          "precision": 0.62722,
+          "recall": 0.72603,
+          "log_loss": 0.6349,
+          "brier": 0.22283,
+          "confusion": [
+            [
+              62,
+              63
+            ],
+            [
+              40,
+              106
+            ]
+          ]
+        },
+        "Enhanced logistic": {
+          "count": 271,
+          "accuracy": 0.631,
+          "precision": 0.64024,
+          "recall": 0.71918,
+          "log_loss": 0.62828,
+          "brier": 0.22012,
+          "confusion": [
+            [
+              66,
+              59
+            ],
+            [
+              41,
+              105
+            ]
+          ]
+        },
+        "Enhanced random forest": {
+          "count": 271,
+          "accuracy": 0.64945,
+          "precision": 0.67114,
+          "recall": 0.68493,
+          "log_loss": 0.62499,
+          "brier": 0.21791,
+          "confusion": [
+            [
+              76,
+              49
+            ],
+            [
+              46,
+              100
+            ]
+          ]
+        },
+        "Enhanced boosting": {
+          "count": 271,
+          "accuracy": 0.631,
+          "precision": 0.65541,
+          "recall": 0.66438,
+          "log_loss": 0.63436,
+          "brier": 0.22242,
+          "confusion": [
+            [
+              74,
+              51
+            ],
+            [
+              49,
+              97
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "weighted_summary": {
+    "Basic logistic": {
+      "accuracy": 0.62823,
+      "brier": 0.22616,
+      "log_loss": 0.64338
+    },
+    "Enhanced logistic": {
+      "accuracy": 0.63376,
+      "brier": 0.22382,
+      "log_loss": 0.63808
+    },
+    "Enhanced random forest": {
+      "accuracy": 0.65037,
+      "brier": 0.22254,
+      "log_loss": 0.63514
+    },
+    "Enhanced boosting": {
+      "accuracy": 0.62731,
+      "brier": 0.2258,
+      "log_loss": 0.64268
+    }
+  },
+  "best_by_mean_log_loss": "Enhanced random forest",
+  "incumbent": "Basic logistic",
+  "beats_basic_log_loss": true,
+  "beats_basic_brier": true,
+  "production_model_replaced": false,
+  "caveats": [
+    "Each test year is scored using preceding years only.",
+    "Multiple candidates were compared: selected results require another independent verification before promotion.",
+    "Schedules and scores lack injuries, player health and all play-by-play efficiency.",
+    "Sports outcomes remain uncertain; probabilities cannot be perfect."
+  ]
+}

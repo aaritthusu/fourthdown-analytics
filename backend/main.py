@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .data import load_data,game_to_dict,DataUnavailable,ROOT,completed_games
 from .features import build_features,FEATURE_NAMES,vector,summarize,team_summaries
 from .modeling import ARTIFACT,REPORT,BACKTEST,dataset_hash
+from .trends import trends as calculate_trends
 
 app=FastAPI(title='FourthDown Analytics API',version='1.0.0',description='Educational NFL outcome analytics, not wagering advice')
 # The production frontend's exact HTTPS origin must be set on the API host.
@@ -181,3 +182,19 @@ def games(season:int|None=None,week:int|None=None,team:str|None=None,result:str|
     return {'games':items,'count':int(len(df)),'offset':offset,'limit':limit,
             'seasons':sorted(s['games'].season.unique().astype(int).tolist(),reverse=True),
             'partial_coverage':s['partial']}
+
+@app.get('/api/trends')
+def team_trends(team: str, opponent: str | None = None, venue: str = 'all',
+                last: int = Query(5, ge=3, le=20)):
+    s = get_state()
+    try:
+        return calculate_trends(s['games'], team, opponent, venue, last, s['partial'])
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+@app.get('/api/research')
+def research_report():
+    path = ROOT / 'artifacts' / 'research_report.json'
+    if not path.exists():
+        raise HTTPException(404, 'No full-season research report yet. Run python -m backend.research --refresh to generate one.')
+    return json.loads(path.read_text())

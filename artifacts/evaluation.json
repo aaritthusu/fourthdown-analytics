@@ -1,37 +1,45 @@
 {
-  "generated_at": "2026-10-22T01:13:03.906976+00:00",
-  "dataset_source": "Verified excerpt from nflverse; PARTIAL COVERAGE, refresh for complete statistics",
-  "coverage": "partial excerpt \u2014 refresh required",
-  "rows_total": 233,
-  "finished_regular_games": 205,
-  "non_tied_model_rows": 203,
+  "generated_at": "2026-10-22T21:17:57.964944+00:00",
+  "dataset_source": "nflverse schedule, refreshed 2026-10-22 21:17 UTC",
+  "coverage": "complete source as downloaded",
+  "rows_total": 6495,
+  "finished_regular_games": 6316,
+  "non_tied_model_rows": 2721,
   "training_seasons": [
-    2024
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
   ],
-  "validation_season": 2025,
-  "test_season": 2026,
-  "training_games": 66,
-  "validation_games": 61,
-  "test_games": 76,
+  "validation_season": 2024,
+  "test_season": 2025,
+  "evaluation_scope": "last completed full regular season; chronological holdout",
+  "training_games": 2086,
+  "validation_games": 272,
+  "test_games": 271,
   "selected_model": "Logistic regression",
-  "version": "logistic-regression-2e8b31bf6dd1",
+  "version": "logistic-regression-d9362fcde4cb",
   "candidates": {
     "Logistic regression": {
       "validation": {
-        "count": 61,
-        "accuracy": 0.5082,
-        "precision": 0.58333,
-        "recall": 0.73684,
-        "log_loss": 0.66188,
-        "brier": 0.23667,
+        "count": 272,
+        "accuracy": 0.65441,
+        "precision": 0.65269,
+        "recall": 0.75172,
+        "log_loss": 0.64124,
+        "brier": 0.22463,
         "confusion": [
           [
-            3,
-            20
+            69,
+            58
           ],
           [
-            10,
-            28
+            36,
+            109
           ]
         ]
       },
@@ -39,20 +47,20 @@
     },
     "Random forest": {
       "validation": {
-        "count": 61,
-        "accuracy": 0.54098,
-        "precision": 0.64706,
-        "recall": 0.57895,
-        "log_loss": 0.71805,
-        "brier": 0.2614,
+        "count": 272,
+        "accuracy": 0.64338,
+        "precision": 0.66438,
+        "recall": 0.66897,
+        "log_loss": 0.64268,
+        "brier": 0.22501,
         "confusion": [
           [
-            11,
-            12
+            78,
+            49
           ],
           [
-            16,
-            22
+            48,
+            97
           ]
         ]
       },
@@ -60,20 +68,20 @@
     },
     "Gradient boosting": {
       "validation": {
-        "count": 61,
-        "accuracy": 0.55738,
-        "precision": 0.64865,
-        "recall": 0.63158,
-        "log_loss": 0.70768,
-        "brier": 0.25578,
+        "count": 272,
+        "accuracy": 0.63235,
+        "precision": 0.65734,
+        "recall": 0.64828,
+        "log_loss": 0.64311,
+        "brier": 0.22582,
         "confusion": [
           [
-            10,
-            13
+            78,
+            49
           ],
           [
-            14,
-            24
+            51,
+            94
           ]
         ]
       },
@@ -81,20 +89,20 @@
     },
     "Home-field baseline": {
       "validation": {
-        "count": 61,
-        "accuracy": 0.62295,
-        "precision": 0.62295,
+        "count": 272,
+        "accuracy": 0.53309,
+        "precision": 0.53309,
         "recall": 1.0,
-        "log_loss": 0.68007,
-        "brier": 0.24347,
+        "log_loss": 0.69149,
+        "brier": 0.24917,
         "confusion": [
           [
             0,
-            23
+            127
           ],
           [
             0,
-            38
+            145
           ]
         ]
       },
@@ -102,96 +110,96 @@
     }
   },
   "test": {
-    "count": 76,
-    "accuracy": 0.57895,
-    "precision": 0.55172,
-    "recall": 0.84211,
-    "log_loss": 0.77676,
-    "brier": 0.26875,
+    "count": 271,
+    "accuracy": 0.61993,
+    "precision": 0.62722,
+    "recall": 0.72603,
+    "log_loss": 0.63493,
+    "brier": 0.22284,
     "confusion": [
       [
-        12,
-        26
+        62,
+        63
       ],
       [
-        6,
-        32
+        40,
+        106
       ]
     ]
   },
   "baseline_test": {
-    "count": 76,
-    "accuracy": 0.5,
-    "precision": 0.5,
+    "count": 271,
+    "accuracy": 0.53875,
+    "precision": 0.53875,
     "recall": 1.0,
-    "log_loss": 0.70447,
-    "brier": 0.2556,
+    "log_loss": 0.6903,
+    "brier": 0.24858,
     "confusion": [
       [
         0,
-        38
+        125
       ],
       [
         0,
-        38
+        146
       ]
     ]
   },
   "calibration": [
     {
-      "predicted": 0.1692,
-      "observed": 0.0,
-      "count": 1
+      "predicted": 0.1637,
+      "observed": 0.5,
+      "count": 2
     },
     {
-      "predicted": 0.3491,
-      "observed": 0.4286,
-      "count": 7
+      "predicted": 0.3177,
+      "observed": 0.3148,
+      "count": 54
     },
     {
-      "predicted": 0.5242,
-      "observed": 0.5385,
-      "count": 39
+      "predicted": 0.5164,
+      "observed": 0.4874,
+      "count": 119
     },
     {
-      "predicted": 0.6942,
-      "observed": 0.5417,
-      "count": 24
+      "predicted": 0.6956,
+      "observed": 0.6951,
+      "count": 82
     },
     {
-      "predicted": 0.9009,
-      "observed": 0.2,
-      "count": 5
+      "predicted": 0.8425,
+      "observed": 0.9286,
+      "count": 14
     }
   ],
   "feature_importance": [
     {
-      "feature": "games_played_difference",
-      "importance": -0.28979
-    },
-    {
-      "feature": "win_rate_difference",
-      "importance": 0.11873
-    },
-    {
       "feature": "points_for_difference",
-      "importance": 0.11655
+      "importance": 0.28164
     },
     {
       "feature": "point_diff_difference",
-      "importance": 0.0717
+      "importance": 0.24766
     },
     {
-      "feature": "last3_margin_difference",
-      "importance": -0.05359
+      "feature": "win_rate_difference",
+      "importance": 0.12279
     },
     {
       "feature": "points_against_difference",
-      "importance": 0.04054
+      "importance": -0.07776
+    },
+    {
+      "feature": "last3_margin_difference",
+      "importance": 0.06869
+    },
+    {
+      "feature": "games_played_difference",
+      "importance": -0.05923
     },
     {
       "feature": "home_field",
-      "importance": 0.0266
+      "importance": 0.03538
     }
   ],
   "limitations": [

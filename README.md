@@ -167,3 +167,11 @@ Run repeated rolling-origin season folds (not just one validation/test), compare
 ## Credits
 
 Independent educational development. **Source data:** nflverse schedules/results. **Tools:** pandas, NumPy, scikit-learn, joblib, FastAPI, Next.js, TypeScript, React, Recharts, Tailwind CSS, Lucide.
+
+## Trends and new research experiments (October 2026 upgrade)
+
+**Trends** lives at `/trends`; each pattern shows observed wins, scoring, defense, close-game and venue rates with sample sizes and supporting games. The API route is `/api/trends?team=KC&opponent=BUF&venue=home&last=5`. For partial data, "last five" means up to five games *present in the available records*; the interface never asserts missing results.
+
+**Advanced research** (`python -m backend.research --refresh`) introduces independent, pre-week Elo, rest time, opponent-quality, venue and recent-margin features, then compares multiple models using chronological seasons. Results are saved to `artifacts/research_report.json` and displayed on Model Performance when available. This is **not** an automatic replacement of the production model, and currently no complete-season report is bundled.
+
+For Windows instructions to update the already deployed Vercel/Render site and retrain with a complete nflverse cache, see [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md).

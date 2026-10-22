@@ -68,7 +68,19 @@ def train(refresh:bool=False) -> dict:
     if len(seasons)>=6:
         dataset=dataset[dataset.season>=max(2015,seasons[-1]-10)].copy()
         seasons=sorted(dataset.season.unique().tolist())
-    val_year,test_year=seasons[-2:]
+    # For complete downloaded schedules, evaluate ONLY completed full seasons.
+    # The active NFL season can have 1–17 finished weeks and must never be
+    # marketed as a fully held-out annual test result.
+    if 'PARTIAL' in source.upper():
+        val_year,test_year=seasons[-2:]  # legacy excerpt, visibly labeled partial
+        evaluation_scope='partial excerpt; not a full-season accuracy estimate'
+    else:
+        per_year=dataset.groupby('season').size()
+        full_years=[int(y) for y in seasons if per_year[y]>=240]
+        if len(full_years)<2:
+            raise ValueError('Full nflverse training requires at least two finished seasons of 240+ games')
+        val_year,test_year=full_years[-2:]
+        evaluation_scope='last completed full regular season; chronological holdout'
     tr=dataset[dataset.season<val_year].copy()
     va=dataset[dataset.season==val_year].copy()
     te=dataset[dataset.season==test_year].copy()
@@ -117,6 +129,7 @@ def train(refresh:bool=False) -> dict:
         'non_tied_model_rows':int(len(dataset)),
         'training_seasons':sorted(int(x) for x in tr.season.unique()),
         'validation_season':int(val_year),'test_season':int(test_year),
+        'evaluation_scope':evaluation_scope,
         'training_games':int(len(tr)),'validation_games':int(len(va)),'test_games':int(len(te)),
         'selected_model':winner,'version':version,
         'candidates':candidates,'test':test_score,'baseline_test':baseline_test,

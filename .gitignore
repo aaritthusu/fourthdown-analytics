@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+frontend/*.tsbuildinfo
+.DS_Store
+# Commit refreshed nflverse game records WITH refreshed model artifacts so the
+# Render deployment loads the exact same dataset used in training. Attribution: nflverse CC BY 4.0.

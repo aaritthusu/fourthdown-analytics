@@ -1,22 +1,22 @@
 'use client';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {Activity,BarChart3,CalendarDays,ChevronRight,ClipboardList,Command,Database,GitCompareArrows,LayoutDashboard,Menu,ShieldCheck,Target,TrendingUp,X,AlertTriangle} from 'lucide-react';
+import {Activity,BarChart3,CalendarDays,ChevronRight,ClipboardList,Command,Database,GitCompareArrows,LayoutDashboard,Menu,ShieldCheck,Target,TrendingUp,X,AlertTriangle,LineChart} from 'lucide-react';
 import {useState} from 'react';
 import {Game,Prediction} from '@/lib/types';
 import {pct,teamNames} from '@/lib/api';
 
-const nav=[{href:'/',label:'Overview',Icon:LayoutDashboard},{href:'/predictions',label:'Predictions',Icon:Target},{href:'/teams',label:'Team comparison',Icon:GitCompareArrows},{href:'/performance',label:'Model performance',Icon:BarChart3},{href:'/history',label:'Game archive',Icon:CalendarDays},{href:'/about',label:'Methodology',Icon:ClipboardList}];
+const nav=[{href:'/',label:'Overview',Icon:LayoutDashboard},{href:'/predictions',label:'Predictions',Icon:Target},{href:'/teams',label:'Team comparison',Icon:GitCompareArrows},{href:'/trends',label:'Trends',Icon:LineChart},{href:'/performance',label:'Model performance',Icon:BarChart3},{href:'/history',label:'Game archive',Icon:CalendarDays},{href:'/about',label:'Methodology',Icon:ClipboardList}];
 export function Shell({children}:{children:React.ReactNode}){
  const route=usePathname(),[menu,setMenu]=useState(false);
  return <div className="shell"><button className="mobile-menu" onClick={()=>setMenu(!menu)} aria-label="Toggle navigation">{menu?<X size={19}/>:<Menu size={19}/>}</button>
- <aside className={'sidebar '+(menu?'opened':'')}><div className="brand"><div className="brand-icon"><Activity size={21}/></div><div><strong>FOURTHDOWN<span>.</span></strong><small>ANALYTICS LAB</small></div></div>
+ <aside className={'sidebar '+(menu?'opened':'')}><div className="brand"><div className="brand-icon"><Activity size={21}/></div><div><strong>FOURTHDOWN<span>.</span></strong><small>FOOTBALL RESEARCH</small></div></div>
  <div className="nav-group">WORKSPACE</div><nav>{nav.map(({href,label,Icon})=><Link onClick={()=>setMenu(false)} key={href} href={href} className={'nav-item '+(route===href?'active':'')}><Icon size={18}/><span>{label}</span>{route===href&&<span className="nav-active-dot"/>}</Link>)}</nav>
- <div className="nav-spacer"/><div className="sidebar-foot"><div className="side-secure"><ShieldCheck size={17}/> RESEARCH-FIRST MODEL</div><div className="small-muted">Independent sports analytics project. Probabilities are estimates—not guarantees.</div></div></aside>
- <div className="main-area"><header className="topbar"><div className="crumb"><span>FOURTHDOWN ANALYTICS</span><ChevronRight size={13}/><b>{nav.find(n=>n.href===route)?.label||'Dashboard'}</b></div><div className="top-right"><span className="green-dot"/> <span className="top-status">RESEARCH DASHBOARD</span><span className="avatar">FD</span></div></header><main className="content">{children}</main><footer className="footer">© 2026 FourthDown Analytics <span>Educational research · Data by nflverse (CC BY 4.0)</span></footer></div></div>
+ <div className="nav-spacer"/><div className="sidebar-foot"><div className="side-secure"><ShieldCheck size={17}/> DATA, NOT HYPE</div><div className="small-muted">Game data and measured models. No prediction is a sure thing.</div></div></aside>
+ <div className="main-area"><header className="topbar"><div className="crumb"><span>FOURTHDOWN ANALYTICS</span><ChevronRight size={13}/><b>{nav.find(n=>n.href===route)?.label||'Dashboard'}</b></div><div className="top-right"><span className="green-dot"/> <span className="top-status">NFL RESEARCH</span><span className="avatar">FD</span></div></header><main className="content">{children}</main><footer className="footer">© 2026 FourthDown Analytics <span>Educational research · Data by nflverse (CC BY 4.0)</span></footer></div></div>
 }
 export function PageIntro({eyebrow,title,subtitle,action}:{eyebrow:string;title:string;subtitle:string;action?:React.ReactNode}){return <div className="page-intro"><div><div className="eyebrow"><span className="eyebrow-line"/>{eyebrow}</div><h1>{title}</h1><p>{subtitle}</p></div>{action&&<div className="intro-action">{action}</div>}</div>}
-export function ErrorState({error}:{error:string}){return <div className="state-box"><AlertTriangle size={27} color="#f8b66d"/><h3>Data could not be loaded</h3><p>{error}</p><code>cd fourthdown-analytics && python -m backend.modeling --refresh</code><p className="hint">Check the API connection. For a hosted website, verify the public API URL and allowed frontend origin.</p></div>}
+export function ErrorState({error}:{error:string}){return <div className="state-box"><AlertTriangle size={27} color="#f8b66d"/><h3>Couldn’t load the latest data</h3><p>{error}</p><p className="hint">Try reloading the page. If the problem continues, the data service may be temporarily unavailable.</p></div>}
 export function LoadingState(){return <div className="loading-grid">{[1,2,3].map(i=><div key={i} className="skeleton"/>)}</div>}
 export function Coverage({partial,source}:{partial:boolean;source?:string}){return partial?<div className="data-alert"><AlertTriangle size={16}/><span><b>Partial offline dataset.</b> This verified excerpt omits games. Refresh nflverse data before interpreting any probabilities or team records.</span></div>:<div className="data-source"><Database size={14}/> {source||'NFL schedule data • nflverse'}</div>}
 export function SectionHeader({title,subtitle,right}:{title:string;subtitle?:string;right?:React.ReactNode}){return <div className="section-head"><div><h2>{title}</h2>{subtitle&&<p>{subtitle}</p>}</div>{right}</div>}
