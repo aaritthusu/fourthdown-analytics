@@ -1,10 +1,18 @@
 # FOURTHDOWN ANALYTICS
 
-**NFL game prediction & model evaluation platform** · Full-stack student engineering project
+**Created and developed by Aarit Thusu** · Independent NFL analytics and model evaluation
 
-FourthDown Analytics is a runnable, source-available sports statistics experiment. It ingests **real NFL results**, constructs information-safe pregame statistics, trains and compares machine-learning models, saves out-of-sample predictions, exposes a Python API, and displays the results in a six-section React dashboard.
+[View the public website](https://fourthdown-analytics.vercel.app) · [Weekly update setup](WEEKLY_UPDATES.md)
 
-> **Read first:** The bundled demonstration data is a *verified but incomplete excerpt* of 205 finished NFL games plus 28 future schedule entries, checked against the nflverse game CSV on **October 21, 2026**. It is not a complete season archive. The model artifact is genuinely trained on this excerpt, but its probabilities and team records should **not** be considered scientifically representative until you perform the full download/retrain step. The UI explicitly warns when this limited data is loaded. This is statistical research, **not gambling or wagering advice**.
+FourthDown Analytics is a runnable, source-available sports statistics experiment. It ingests **real NFL results**, constructs information-safe pregame statistics, trains and compares machine-learning models, saves out-of-sample predictions, exposes a Python API, and displays the results in a seven-section React dashboard, including a historical Trends explorer.
+
+> **Data and accuracy:** The archived ZIP used for local demonstration originally included a partial, verified sample. Your current public deployment uses a refreshed historical schedule dataset and trained artifacts. The website shows the actual number of games and measured holdout accuracy; those figures can change when new game results are downloaded. Never present modeled probabilities as guaranteed outcomes. This is independent statistical research, not wagering advice.
+
+## Creator and automatic updates
+
+FourthDown Analytics was **created, designed and developed by Aarit Thusu**. The website identifies the creator in its browser title, sidebar, homepage, footer and About page.
+
+Run the scheduled workflow in [WEEKLY_UPDATES.md](WEEKLY_UPDATES.md) to check real NFL data every Tuesday, retrain when it changes, and publish model artifacts through GitHub and Render—without leaving a computer running. This workflow only updates verified data and does not automatically promote unvalidated experimental models.
 
 ## Publish for everyone to visit
 
@@ -19,7 +27,7 @@ A deployment-ready `render.yaml` (FastAPI API), `.python-version` (Python 3.13),
 | Training | Logistic regression, random forest, histogram gradient boosting, and an empirical home-win baseline; select by validation log loss and score held-out season once |
 | Evaluation | Accuracy, precision, recall, confusion matrix, Brier score, log loss, five-bin calibration, experiment metadata, model version and saved test predictions |
 | API | `/api/health`, `/api/overview`, `/api/teams`, `/api/compare`, `/api/predictions`, `/api/predict`, `/api/performance`, `/api/games`; validation, pagination, filtering |
-| Web | Six responsive Next.js pages: Overview, Predictions, Team comparison, Model performance, Historical games, Methodology |
+| Web | Seven responsive Next.js pages: Overview, Predictions, Team comparison, Trends, Model performance, Historical games, Methodology |
 | Testing | Pytest feature-freezing/leakage tests, input validity, API health, score probability invariants; code and data provenance in repository |
 
 The dashboard uses custom team badges rather than distributing copyrighted NFL logos. The frontend has loading, error, and empty states.

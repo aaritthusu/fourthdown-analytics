@@ -114,6 +114,7 @@ def overview():
             'source':s['source'],'partial_coverage':s['partial'],'completed_game_count':s['total_completed'],
             'model_ready':s['model'] is not None,'model_warning':s['model_warning'],'model_version':s['model']['version'] if s['model'] else None,
             'model_performance':s['report']['test'] if s['report'] else None,
+            'model_updated_at':s['report'].get('generated_at') if s['report'] else None,
             'upcoming':[dict(game_to_dict(r),prediction=predict_game(s,r.home_team,r.away_team,int(r.season),int(r.week),str(r.location).lower()=='neutral')) for _,r in upcoming.iterrows()],
             'recent':[game_to_dict(r) for _,r in recent.iterrows()],
             'top_teams':teams[:8]}
