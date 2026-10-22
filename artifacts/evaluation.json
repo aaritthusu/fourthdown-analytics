@@ -1,0 +1,203 @@
+{
+  "generated_at": "2026-10-22T01:13:03.906976+00:00",
+  "dataset_source": "Verified excerpt from nflverse; PARTIAL COVERAGE, refresh for complete statistics",
+  "coverage": "partial excerpt \u2014 refresh required",
+  "rows_total": 233,
+  "finished_regular_games": 205,
+  "non_tied_model_rows": 203,
+  "training_seasons": [
+    2024
+  ],
+  "validation_season": 2025,
+  "test_season": 2026,
+  "training_games": 66,
+  "validation_games": 61,
+  "test_games": 76,
+  "selected_model": "Logistic regression",
+  "version": "logistic-regression-2e8b31bf6dd1",
+  "candidates": {
+    "Logistic regression": {
+      "validation": {
+        "count": 61,
+        "accuracy": 0.5082,
+        "precision": 0.58333,
+        "recall": 0.73684,
+        "log_loss": 0.66188,
+        "brier": 0.23667,
+        "confusion": [
+          [
+            3,
+            20
+          ],
+          [
+            10,
+            28
+          ]
+        ]
+      },
+      "test": null
+    },
+    "Random forest": {
+      "validation": {
+        "count": 61,
+        "accuracy": 0.54098,
+        "precision": 0.64706,
+        "recall": 0.57895,
+        "log_loss": 0.71805,
+        "brier": 0.2614,
+        "confusion": [
+          [
+            11,
+            12
+          ],
+          [
+            16,
+            22
+          ]
+        ]
+      },
+      "test": null
+    },
+    "Gradient boosting": {
+      "validation": {
+        "count": 61,
+        "accuracy": 0.55738,
+        "precision": 0.64865,
+        "recall": 0.63158,
+        "log_loss": 0.70768,
+        "brier": 0.25578,
+        "confusion": [
+          [
+            10,
+            13
+          ],
+          [
+            14,
+            24
+          ]
+        ]
+      },
+      "test": null
+    },
+    "Home-field baseline": {
+      "validation": {
+        "count": 61,
+        "accuracy": 0.62295,
+        "precision": 0.62295,
+        "recall": 1.0,
+        "log_loss": 0.68007,
+        "brier": 0.24347,
+        "confusion": [
+          [
+            0,
+            23
+          ],
+          [
+            0,
+            38
+          ]
+        ]
+      },
+      "test": null
+    }
+  },
+  "test": {
+    "count": 76,
+    "accuracy": 0.57895,
+    "precision": 0.55172,
+    "recall": 0.84211,
+    "log_loss": 0.77676,
+    "brier": 0.26875,
+    "confusion": [
+      [
+        12,
+        26
+      ],
+      [
+        6,
+        32
+      ]
+    ]
+  },
+  "baseline_test": {
+    "count": 76,
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "log_loss": 0.70447,
+    "brier": 0.2556,
+    "confusion": [
+      [
+        0,
+        38
+      ],
+      [
+        0,
+        38
+      ]
+    ]
+  },
+  "calibration": [
+    {
+      "predicted": 0.1692,
+      "observed": 0.0,
+      "count": 1
+    },
+    {
+      "predicted": 0.3491,
+      "observed": 0.4286,
+      "count": 7
+    },
+    {
+      "predicted": 0.5242,
+      "observed": 0.5385,
+      "count": 39
+    },
+    {
+      "predicted": 0.6942,
+      "observed": 0.5417,
+      "count": 24
+    },
+    {
+      "predicted": 0.9009,
+      "observed": 0.2,
+      "count": 5
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "games_played_difference",
+      "importance": -0.28979
+    },
+    {
+      "feature": "win_rate_difference",
+      "importance": 0.11873
+    },
+    {
+      "feature": "points_for_difference",
+      "importance": 0.11655
+    },
+    {
+      "feature": "point_diff_difference",
+      "importance": 0.0717
+    },
+    {
+      "feature": "last3_margin_difference",
+      "importance": -0.05359
+    },
+    {
+      "feature": "points_against_difference",
+      "importance": 0.04054
+    },
+    {
+      "feature": "home_field",
+      "importance": 0.0266
+    }
+  ],
+  "limitations": [
+    "Available schedule scores do not include injuries, starting lineup changes or play-level efficiency.",
+    "Partial offline excerpt, if used, omits many games; refresh for scientifically useful results.",
+    "Predicted probabilities are estimates, not guaranteed outcomes."
+  ],
+  "protocol": "Select algorithm using validation log loss, refit on train+validation, evaluate next season once, then refit on all observed seasons for future predictions."
+}

@@ -1,0 +1,14 @@
+# Render Blueprint: deploy the read-only Python API first.
+# After Vercel deploys, set FRONTEND_ORIGINS to the exact Vercel HTTPS origin
+# in Render > Environment, then redeploy the API.
+services:
+  - type: web
+    name: fourthdown-analytics-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
