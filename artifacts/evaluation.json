@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-27T21:19:02.463012+00:00",
-  "dataset_source": "Local nflverse cache (mtime 2026-10-27 21:19 UTC)",
+  "generated_at": "2026-11-03T22:18:43.832391+00:00",
+  "dataset_source": "Local nflverse cache (mtime 2026-11-03 22:18 UTC)",
   "coverage": "complete source as downloaded",
   "rows_total": 6495,
-  "finished_regular_games": 6330,
-  "non_tied_model_rows": 2735,
+  "finished_regular_games": 6344,
+  "non_tied_model_rows": 2749,
   "training_seasons": [
     2016,
     2017,
@@ -22,7 +22,7 @@
   "validation_games": 272,
   "test_games": 271,
   "selected_model": "Logistic regression",
-  "version": "logistic-regression-117acf6af629",
+  "version": "logistic-regression-deaa6543b365",
   "candidates": {
     "Logistic regression": {
       "validation": {
@@ -175,31 +175,31 @@
   "feature_importance": [
     {
       "feature": "points_for_difference",
-      "importance": 0.28208
+      "importance": 0.28467
     },
     {
       "feature": "point_diff_difference",
-      "importance": 0.25033
+      "importance": 0.25055
     },
     {
       "feature": "win_rate_difference",
-      "importance": 0.1178
+      "importance": 0.11801
     },
     {
       "feature": "points_against_difference",
-      "importance": -0.08162
+      "importance": -0.07893
     },
     {
       "feature": "last3_margin_difference",
-      "importance": 0.06546
+      "importance": 0.06748
     },
     {
       "feature": "games_played_difference",
-      "importance": -0.06181
+      "importance": -0.06007
     },
     {
       "feature": "home_field",
-      "importance": 0.04036
+      "importance": 0.04069
     }
   ],
   "limitations": [
